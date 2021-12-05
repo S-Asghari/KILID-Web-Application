@@ -1,0 +1,282 @@
+@font-face {
+    font-family: 'IRANSans-faNum';
+    font-style: normal;
+    font-weight: normal;
+    src: url('https://www.kilidstatic.com/fonts/iransans/faNum/IRANSansWeb-FaNum.eot');
+    src: url('https://www.kilidstatic.com/fonts/iransans/faNum/IRANSansWeb-FaNum.eot?#iefix') format('embedded-opentype'), /* IE6-8 */
+    url('https://www.kilidstatic.com/fonts/iransans/faNum/IRANSansWeb-FaNum.woff2') format('woff2'), url('https://www.kilidstatic.com/fonts/iransans/faNum/IRANSansWeb-FaNum.woff') format('woff'), url('https://www.kilidstatic.com/fonts/iransans/faNum/IRANSansWeb-FaNum.ttf') format('truetype');
+}
+
+* {
+    font-family: IRANSans-faNum !important;
+}
+
+body {
+    background-image: url("https://i.ibb.co/jJfYRNM/back-photo3.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 26.8%;
+    /*background-attachment: fixed;*/
+}
+
+#headerTable {
+    table-layout: auto;
+    width: 98%;
+    position: fixed;
+    font-size: 9.5pt;
+    background-color: white;
+    z-index: 3;
+}
+
+#headerLink:link,
+#headerLink:visited {
+    text-decoration: none;
+    color: black;
+}
+
+#headerLink:hover,
+#headerLink:active {
+    border-bottom: 1px solid;
+    color: #B30753;
+}
+
+#headerLink2:link,
+#headerLink2:visited {
+    text-decoration: none;
+    background-color: #B30753;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 15px;
+    color: white;
+}
+
+#headerLink2:hover,
+#headerLink2:active {
+    text-decoration: none;
+    background-color: white;
+    color: #B30753;
+    border: 1px solid #B30753;
+}
+
+#searchLink:link,
+#searchLink:visited {
+    background-color: rgba(69, 69, 69, 0.6);
+    color: white;
+    padding: 5px 30px;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 20px;
+    border: 2px white solid;
+}
+
+#searchLink:hover {
+    background-color: rgba(45, 45, 45, 0.8);
+}
+
+#searchLink:active,
+#searchLink:focus {
+    background-color: #B30753;
+}
+
+div.relative {
+    position: relative;
+    text-align: right;
+    right: 130px;
+}
+
+#searchInput {
+    font-size: 10pt;
+    color: #B30753;
+    height: 40px;
+    text-align: right;
+    padding-right: 15px;
+    border-radius: 25px;
+}
+
+#img {
+    margin-right: 4px;
+    position: relative;
+    top: 22px
+}
+
+div.relative2 {
+    color: #939598;
+    position: relative;
+    float: right;
+    width: 35%;
+    right: 130px;
+    text-align: right;
+    font-size: 13pt;
+}
+
+#houseInfLink:link,
+#houseInfLink:visited {
+    color: #B30753;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0px 1px 5px #888888;
+    border-radius: 4px;
+    font-size: 11pt;
+    padding: 6px 20px;
+    width: 130px;
+    text-align: center;
+}
+
+#houseInfLink:hover,
+#houseInfLink:active {
+    background-color: #B30753;
+    color: white;
+}
+
+#img2 {
+    border-radius: 8px;
+    width: 280px;
+    height: 280px;
+    margin-left: 35px;
+}
+
+.zoom {
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+    transition: transform .2s;
+    /* Animation */
+    width: 180px;
+    height: 280px;
+    object-fit: cover;
+}
+
+.zoom:hover {
+    transform: scale(1.03);
+    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.polaroid {
+    display: inline-block;
+    width: 22%;
+    height: 22%;
+    background-color: white;
+    border-radius: 7px;
+    margin-bottom: 25px;
+    margin-right: 15px;
+    margin-left: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow: hidden;
+}
+
+.polaroid:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.container {
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 9.5pt;
+    color: black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    direction: rtl;
+}
+
+.float {
+    float: left;
+}
+
+.footer1 {
+    padding-top: 10px;
+    background-color: #2C2C2C;
+    text-align: center;
+}
+
+#changeImg1:hover {
+    content: url("https://i.ibb.co/6R07y1s/linkedin.png");
+    border-radius: 40px;
+    margin-right: 10px;
+}
+
+#changeImg2:hover {
+    content: url("https://i.ibb.co/0fj0cKB/twitter.png");
+    border-radius: 40px;
+    margin-right: 10px;
+}
+
+#changeImg3:hover {
+    content: url("https://i.ibb.co/YpgH3QZ/instagram.png");
+    border-radius: 40px;
+    margin-right: 10px;
+}
+
+#changeImg4:hover {
+    content: url("https://i.ibb.co/yVZNjh1/telegram.png");
+    border-radius: 40px;
+}
+
+#footerTable {
+    table-layout: auto;
+    display: inline-block;
+}
+
+#footer1Link:link,
+#footer1Link:visited,
+#footer1Link:active {
+    font-size: 11pt;
+    text-decoration: none;
+    color: white;
+    margin-left: 30px;
+}
+
+#footer1Link:hover {
+    color: #A4AAAA;
+}
+
+#footerImg {
+    width: 5.8%;
+    height: 5.8%;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 7px;
+    display: inline-block;
+}
+
+#footer12Link:link,
+#footer12Link:visited,
+#footer12Link:active {
+    font-size: 10.5pt;
+    text-decoration: none;
+    color: #A4AAAA;
+    margin-left: 25px;
+}
+
+#footer12Link:hover {
+    color: white;
+}
+
+.footer2 {
+    background-color: #1E1E1E;
+    color: #838383;
+    padding-top: 1px;
+    padding-bottom: 10px;
+}
+
+#footer2Link {
+    text-decoration: none;
+    color: white;
+    font-size: 9pt;
+    width: 70px;
+    display: inline-block;
+}
+
+.footer3 {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: #ccc;
+    text-align: center;
+    font-size: 9pt;
+}

@@ -1,0 +1,174 @@
+﻿<html>
+
+<head>
+    <title>خرید آپارتمان، خرید خانه و فروش خانه | کیلید</title>
+    <link rel="stylesheet" type="text/css" href="./cssFile3.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script>
+        function eventFun() {
+            document.getElementById("sectionTitle").remove();
+            document.getElementById("buttonForMore").remove();
+            mainFun(event.target.getAttribute("data-url"));
+        }
+
+
+        function mainFun(jsonUrl) {
+            $.getJSON(jsonUrl, function(data) {
+                var secTitle = document.createElement("div");
+                secTitle.id = "sectionTitle";
+                secTitle.innerHTML = "<div>" + data.section + "</div>";
+                $(secTitle).appendTo("#occasionsTitle");
+                $.each(data.items, function(i, f) {
+                    var first = document.createElement("a");
+                    // first.setAttribute("href", "http://hallows.ir/house/" + f.id);
+                    first.setAttribute("href", "./buyHouse.html?id=" + f.id);
+                    first.classList.add("polaroid");
+                    document.getElementById("occasions").appendChild(first);
+
+                    var second = document.createElement("img");
+                    second.classList.add("imagee");
+                    second.src = (f.pic).image;
+                    second.setAttribute("style", "width: 100%;");
+                    first.appendChild(second);
+
+                    var third = document.createElement("div");
+                    third.classList.add("bottom");
+                    first.appendChild(third);
+
+                    var third_2 = document.createElement("div");
+                    third_2.classList.add("top");
+                    first.appendChild(third_2);
+
+                    var forth = document.createElement("div");
+                    forth.classList.add("bottom-right");
+                    third.appendChild(forth);
+
+                    var forth_2 = document.createElement("div");
+                    forth_2.classList.add("top-right");
+                    third_2.appendChild(forth_2);
+
+                    var fifth = document.createElement("span");
+                    fifth.innerHTML = (f.location).locality;
+                    fifth.setAttribute("style", "margin-bottom: 8px; display: block;");
+                    forth.appendChild(fifth);
+
+                    var sixth = document.createElement("span");
+                    sixth.setAttribute("style", "font-size:12px; font-weight: 500; position: relative; float: right;");
+                    sixth.innerHTML = f.title;
+                    forth.appendChild(sixth);
+
+                    if (f.star == true) {
+                        var sixth_2 = document.createElement("i");
+                        sixth_2.setAttribute("style", "position: relative; float: right; padding: 8px; background-color: orange; border-radius: 5px 0 0 5px;")
+                        sixth_2.classList.add("fa");
+                        sixth_2.classList.add("fa-star");
+                        forth_2.appendChild(sixth_2);
+                    }
+
+                    var seventh = document.createElement("div");
+                    seventh.classList.add("bottom-left");
+                    third.appendChild(seventh);
+
+                    var seventh_2 = document.createElement("div");
+                    seventh_2.classList.add("top-left");
+                    third_2.appendChild(seventh_2);
+
+                    var eight = document.createElement("span");
+                    eight.setAttribute("style", "display: inline-block;");
+                    eight.innerHTML = (f.pic).number;
+                    seventh.appendChild(eight);
+
+                    var ninth = document.createElement("i");
+                    ninth.setAttribute("style", "display: inline-block; margin-right: 5px;");
+                    ninth.classList.add("fa");
+                    ninth.classList.add("fa-camera");
+                    seventh.appendChild(ninth);
+
+                    var ninth_2 = document.createElement("i");
+                    ninth_2.id = "iconHover";
+                    ninth_2.classList.add("fa");
+                    ninth_2.classList.add("fa-bookmark");
+                    ninth_2.classList.add("fa-2x");
+                    seventh_2.appendChild(ninth_2);
+                    if (f.bookmarked == true) {
+                        ninth_2.setAttribute("style", "color: rgba(236, 16, 108, 0.6);");
+                    }
+
+                    var tenth = document.createElement("div");
+                    tenth.setAttribute("style", "font-size: 10.5px; color: Gray; border-bottom: 1px solid LightGray; width: 100%; padding-bottom: 5px; padding-top: 5px;");
+                    first.appendChild(tenth);
+
+                    var tenth_0 = document.createElement("span");
+                    tenth_0.setAttribute("style", "padding-right:10px; padding-left:10px;");
+                    var datee = new Date(f.created_at);
+                    var now = new Date().getTime();
+                    var difference = now / 1000 - datee;
+                    var daysDifference = Math.floor(difference / 60 / 60 / 24);
+                    tenth_0.innerHTML = daysDifference + " روز پیش";
+                    tenth.appendChild(tenth_0);
+
+                    var tenth_1 = document.createElement("span");
+                    tenth_1.setAttribute("style", "border-right: 1px solid LightGray; padding-right:10px; padding-left:10px;");
+                    tenth_1.innerHTML = f.bedrooms + " خوابه";
+                    tenth.appendChild(tenth_1);
+
+                    var tenth_2 = document.createElement("span");
+                    tenth_2.setAttribute("style", "border-right: 1px solid LightGray; padding-right:10px; padding-left:10px;");
+                    tenth_2.innerHTML = f.area + " متر";
+                    tenth.appendChild(tenth_2);
+
+                    var tenth_3 = document.createElement("span");
+                    tenth_3.setAttribute("style", "border-right: 1px solid LightGray; padding-right:10px; padding-left:10px;");
+                    tenth_3.innerHTML = f.type;
+                    tenth.appendChild(tenth_3);
+
+                    var eleventh = document.createElement("p");
+                    eleventh.classList.add("container");
+                    eleventh.innerHTML = "قیمت: " + f.price / 10000000000 + " میلیارد تومان" +
+                        "<br />" + "متر مربع: " + Math.round(f.price / 100000 / f.area) / 100 + " میلیون تومان";
+                    first.appendChild(eleventh);
+
+                    var eleventh_2 = document.createElement("div");
+                    eleventh_2.classList.add("left");
+                    eleventh.appendChild(eleventh_2);
+
+                    var eleventh_2_1 = document.createElement("img");
+                    eleventh_2_1.setAttribute("style", "width: 50px; height: 50px; border-radius: 25px; border: solid 1px Gray;");
+                    eleventh_2_1.src = (f.estate).logo;
+                    eleventh_2.appendChild(eleventh_2_1);
+
+                    var eleventh_2_2 = document.createElement("span");
+                    eleventh_2_2.innerHTML = "<br />" + (f.estate).name;
+                    eleventh_2_2.setAttribute("style", "font-size: 10px; color: Gray; padding: 5px;");
+                    eleventh_2.appendChild(eleventh_2_2);
+
+                });
+                var allOcns = document.createElement("button");
+                allOcns.id = "buttonForMore";
+                allOcns.innerHTML = (data.action).text;
+                allOcns.setAttribute("data-url", (data.action).url);
+                allOcns.onclick = eventFun;
+                $(allOcns).appendTo("#bfm");
+            });
+        };
+        mainFun('http://hallows.ir/occasion');
+        // $("document").ready(function() {
+        //     setTimeout(function() {
+        //         document.getElementById("buttonForMore").trigger('click');
+        //     }, 300);
+        // });
+    </script>
+
+
+</head>
+
+<body>
+    <h2 id=occasionsTitle></h2>
+    <br />
+    <div id="occasions"></div>
+    <br />
+    <div id="bfm"></div>
+</body>
+
+</html>
