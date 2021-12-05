@@ -1,0 +1,37 @@
+CREATE DATABASE accounts;
+
+CREATE TABLE `users` (
+  	`first_name` varchar(50) NOT NULL,
+	`last_name` varchar(50) NOT NULL,
+ 	`email` varchar(100) NOT NULL,
+  	`phone` int(11) NOT NULL DEFAULT 0,
+ 	`password` varchar(100) NOT NULL,
+ 	`level` set('manager','ordinary') NOT NULL,
+ 	`hash` varchar(32) NOT NULL,
+PRIMARY KEY (`email`)
+);
+
+
+CREATE TABLE `accounts`.`occasions`
+(
+	  `user_id`  varchar(100) NOT NULL,
+	  `title` varchar(50) NOT NULL,
+	  `price` int(13) NOT NULL,
+	  `type` set('commercial','residential') DEFAULT 'residential',
+	  `area` int(11) NOT NULL,
+	  `bedrooms` tinyint(4) NOT NULL,
+	  `parkings` tinyint(4) DEFAULT 0,
+	  `locality` varchar(50) NOT NULL,
+ 	 `estate` varchar(200) DEFAULT 'https://www.kilidstatic.com/pictures/91e7153f-0788-43f3-8926-ab3bb8d48e47.jpg',
+ 	 `star` set('true','false') DEFAULT 'false',
+ 	 `bookmarked` set('true','false') DEFAULT 'false',
+ 	 `created_at` timestamp NOT NULL DEFAULT current_timestamp(),		
+PRIMARY KEY (`title`)
+);
+
+CREATE TABLE `accounts`.`housePics`
+(
+	house_id varchar(50) NOT NULL,
+	image varchar(200),
+PRIMARY KEY (`image`)
+);
